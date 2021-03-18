@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on win32)" generated="20210318 11:06:33.069" rpa="false">
+<suite id="s1" name="APIAutomation" source="C:\Users\OdayY\eclipse-workspace\APIAutomation">
+<suite id="s1-s1" name="XML" source="C:\Users\OdayY\eclipse-workspace\APIAutomation\XML">
+<suite id="s1-s1-s1" name="TC XML File" source="C:\Users\OdayY\eclipse-workspace\APIAutomation\XML\TC_XML_File.robot">
+<test id="s1-s1-s1-t1" name="TC">
+<kw name="Parse Xml" library="XML">
+<doc>Parses the given XML file or string into an element structure.</doc>
+<arguments>
+<arg>C:\\Users\\OdayY\\eclipse-workspace\\APIAutomation\\XML/xml.xml</arg>
+</arguments>
+<assign>
+<var>${xml_obj}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.314" level="INFO">${xml_obj} = &lt;Element 'employees' at 0x00000151E03C3D60&gt;</msg>
+<status status="PASS" starttime="20210318 11:06:33.313" endtime="20210318 11:06:33.314"></status>
+</kw>
+<kw name="Get Element Text" library="XML">
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[1]/firstname</arg>
+</arguments>
+<assign>
+<var>${emp_firstname}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.316" level="INFO">${emp_firstname} = Oday</msg>
+<status status="PASS" starttime="20210318 11:06:33.315" endtime="20210318 11:06:33.316"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${emp_firstname}</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.317" endtime="20210318 11:06:33.318"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${emp_firstname}</arg>
+<arg>Oday</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.318" endtime="20210318 11:06:33.319"></status>
+</kw>
+<kw name="Get Element" library="XML">
+<doc>Returns an element in the ``source`` matching the ``xpath``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[1]/firstname</arg>
+</arguments>
+<assign>
+<var>${emp_firstname}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.321" level="INFO">${emp_firstname} = &lt;Element 'firstname' at 0x00000151E03C3E00&gt;</msg>
+<status status="PASS" starttime="20210318 11:06:33.320" endtime="20210318 11:06:33.321"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${emp_firstname}</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.321" endtime="20210318 11:06:33.322"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${emp_firstname.text}</arg>
+<arg>Oday</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.322" endtime="20210318 11:06:33.323"></status>
+</kw>
+<kw name="Element Text Should Be" library="XML">
+<doc>Verifies that the text of the specified element is ``expected``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>Oday</arg>
+<arg>.//employee[1]/firstname</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.324" endtime="20210318 11:06:33.324"></status>
+</kw>
+<kw name="Get Element Count" library="XML">
+<doc>Returns and logs how many elements the given ``xpath`` matches.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.325" level="INFO">5 elements matched './/employee'.</msg>
+<msg timestamp="20210318 11:06:33.326" level="INFO">${count} = 5</msg>
+<status status="PASS" starttime="20210318 11:06:33.325" endtime="20210318 11:06:33.326"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${count}</arg>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20210318 11:06:33.327" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210318 11:06:33.326" endtime="20210318 11:06:33.327"></status>
+</kw>
+<kw name="Element Attribute Should Be" library="XML">
+<doc>Verifies that the specified attribute is ``expected``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>id</arg>
+<arg>2</arg>
+<arg>.//employee[2]</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.327" endtime="20210318 11:06:33.328"></status>
+</kw>
+<kw name="Get Child Elements" library="XML">
+<doc>Returns the child elements of the specified element as a list.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[2]</arg>
+</arguments>
+<assign>
+<var>${child_element}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.329" level="INFO">${child_element} = [&lt;Element 'firstname' at 0x00000151E03D6040&gt;, &lt;Element 'lastname' at 0x00000151E03D6090&gt;, &lt;Element 'title' at 0x00000151E03D60E0&gt;, &lt;Element 'building' at 0x00000151E03D6130&gt;, &lt;Element 'room' at 0x0000...</msg>
+<status status="PASS" starttime="20210318 11:06:33.328" endtime="20210318 11:06:33.329"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${child_element}</arg>
+</arguments>
+<msg timestamp="20210318 11:06:33.330" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20210318 11:06:33.329" endtime="20210318 11:06:33.330"></status>
+</kw>
+<kw name="Get Element Text" library="XML">
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<arguments>
+<arg>${child_element[0]}</arg>
+</arguments>
+<assign>
+<var>${fname}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.331" level="INFO">${fname} = Samer</msg>
+<status status="PASS" starttime="20210318 11:06:33.330" endtime="20210318 11:06:33.332"></status>
+</kw>
+<kw name="Get Element Text" library="XML">
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<arguments>
+<arg>${child_element[2]}</arg>
+</arguments>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20210318 11:06:33.334" level="INFO">${title} = Mechanecal</msg>
+<status status="PASS" starttime="20210318 11:06:33.332" endtime="20210318 11:06:33.334"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${fname}</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.334" endtime="20210318 11:06:33.335"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${title}</arg>
+</arguments>
+<status status="PASS" starttime="20210318 11:06:33.335" endtime="20210318 11:06:33.336"></status>
+</kw>
+<status status="PASS" starttime="20210318 11:06:33.311" endtime="20210318 11:06:33.336" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210318 11:06:33.221" endtime="20210318 11:06:33.337"></status>
+</suite>
+<status status="PASS" starttime="20210318 11:06:33.215" endtime="20210318 11:06:33.339"></status>
+</suite>
+<status status="PASS" starttime="20210318 11:06:33.178" endtime="20210318 11:06:33.340"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="APIAutomation">APIAutomation</stat>
+<stat pass="1" fail="0" id="s1-s1" name="XML">APIAutomation.XML</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="TC XML File">APIAutomation.XML.TC XML File</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

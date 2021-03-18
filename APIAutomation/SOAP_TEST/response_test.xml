@@ -1,0 +1,20 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ResolveIPResponse xmlns="http://ws.cdyne.com/">
+      <ResolveIPResult>
+        <City>Prague</City>
+        <StateProvince>52</StateProvince>
+        <Country>Czech Republic</Country>
+        <Organization/>
+        <Latitude>50.07651</Latitude>
+        <Longitude>14.51041</Longitude>
+        <AreaCode>0</AreaCode>
+        <TimeZone/>
+        <HasDaylightSavings>false</HasDaylightSavings>
+        <Certainty>90</Certainty>
+        <RegionName/>
+        <CountryCode>CZ</CountryCode>
+      </ResolveIPResult>
+    </ResolveIPResponse>
+  </soap:Body>
+</soap:Envelope>
