@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:createTransaction>
+         <!--Optional:-->
+         <arg0>
+            <amount>100</amount>
+            <!--Optional:-->
+            <from>1</from>
+            <!--Optional:-->
+            <id>1</id>
+            <!--Optional:-->
+            <to>2</to>
+         </arg0>
+      </ser:createTransaction>
+   </soapenv:Body>
+</soapenv:Envelope>
