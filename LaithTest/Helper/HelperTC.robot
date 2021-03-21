@@ -1,16 +1,17 @@
 *** Variables ***
 ${EndPoint}    http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders
-
+ 
 *** Settings ***
 
 Library    RequestsLibrary    
 Library    Collections    
 Library    JSONLibrary    
 
+
 *** Keywords ***
 
 #For Get Request
-checkNoAccountHolder
+checkNumberOfAccountHolder
     [Arguments]    ${SESSION}    ${path}    ${No_Account}
      ${responce}=    Get On Session    ${SESSION}     ${path}
      ${status_code}=    Convert To String    ${responce.status_code}
@@ -20,20 +21,22 @@ checkNoAccountHolder
      Should Be Equal As Strings    ${NoAcc}    ${No_Account}
      
 
-
-checkifInformationOfAccountValid_ExistingAccount
+verfyExistAccountInfo
     [Arguments]    ${session}      ${path}    ${id}
      ${responce}=    Get On Session    ${SESSION}     ${path}${id}
       ${status_code}=    Convert To String    ${responce.status_code}
      Should Be Equal    ${status_code}    200  
      FOR    ${item}    IN    ${responce.json()}
-     \    ${res_id}    Get From Dictionary    ${item}    id
-     \    Should Be Equal    ${res_id}    ${id}
-          
+     \    ${res_id}    Get From Dictionary    ${item}    id  
+     \    Run Keyword If    ${res_id}== ${id}    equality    ${res_id}    ${id}
+     
      END
      
-
-checkifInformationOfAccountValid_NotExistingAccount
+    
+equality
+    [Arguments]    ${res_id}    ${id}
+     Should Be Equal    ${res_id}    ${id}
+verfyNotExistAccountInfo
     [Arguments]        ${session}      ${path}    ${id} 
       ${responce}=    Get On Session    ${SESSION}     ${path}${id}
       Should Be Equal As Strings    ${responce.status_code}    204

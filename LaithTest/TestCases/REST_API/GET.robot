@@ -5,11 +5,11 @@ Test Setup    Create Session    mysess    http://localhost:8080/jakarta-ee-getti
 
 *** Test Cases ***
 TC1
-    HelperTC.checkNoAccountHolder    mysess    /    4
+    HelperTC.checkNumberOfAccountHolder    mysess    /    4
 
 
 TC2
-    HelperTC.checkifInformationOfAccountValid_ExistingAccount    mysess    /           2
+    HelperTC.verfyExistAccountInfo    mysess    /           2
     
 TC3 
-    HelperTC.checkifInformationOfAccountValid_NotExistingAccount    mysess    /    55
+    HelperTC.verfyNotExistAccountInfo    mysess    /    55
