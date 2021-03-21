@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on win32)" generated="20210321 14:36:21.282" rpa="false">
+<suite id="s1" name="DELETE &amp; GET &amp; POST &amp; PUT">
+<suite id="s1-s1" name="DELETE" source="C:\Users\OdayY\eclipse-workspace\LaithTest\TestCases\REST_API\DELETE.robot">
+<test id="s1-s1-t1" name="TC1">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:21.668" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:21.660" endtime="20210321 14:36:21.668"></status>
+</kw>
+<kw name="deleteAccountHolder_Exist" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>3</arg>
+</arguments>
+<kw name="Delete On Session" library="RequestsLibrary">
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:21.709" level="INFO">DELETE Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:21.709" level="INFO">DELETE Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '4'} 
+ body=true 
+ </msg>
+<msg timestamp="20210321 14:36:21.710" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:21.669" endtime="20210321 14:36:21.710"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210321 14:36:21.710" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:21.710" endtime="20210321 14:36:21.710"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:21.669" endtime="20210321 14:36:21.711"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:21.659" endtime="20210321 14:36:21.712" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="TC2">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:21.715" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:21.715" endtime="20210321 14:36:21.715"></status>
+</kw>
+<kw name="deleteAccountHolder_NotExist" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>55</arg>
+</arguments>
+<kw name="Delete On Session" library="RequestsLibrary">
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:21.755" level="INFO">DELETE Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/55 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:21.755" level="INFO">DELETE Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '4'} 
+ body=true 
+ </msg>
+<msg timestamp="20210321 14:36:21.755" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:21.716" endtime="20210321 14:36:21.755"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>204</arg>
+</arguments>
+<msg timestamp="20210321 14:36:21.755" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:21.755" level="FAIL">200 != 204</msg>
+<status status="FAIL" starttime="20210321 14:36:21.755" endtime="20210321 14:36:21.755"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:21.716" endtime="20210321 14:36:21.755"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:21.714" endtime="20210321 14:36:21.756" critical="yes">200 != 204</status>
+</test>
+<status status="FAIL" starttime="20210321 14:36:21.316" endtime="20210321 14:36:21.757"></status>
+</suite>
+<suite id="s1-s2" name="GET" source="C:\Users\OdayY\eclipse-workspace\LaithTest\TestCases\REST_API\GET.robot">
+<test id="s1-s2-t1" name="TC1">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:21.771" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:21.771" endtime="20210321 14:36:21.772"></status>
+</kw>
+<kw name="checkNoAccountHolder" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>4</arg>
+</arguments>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${SESSION}</arg>
+<arg>${path}</arg>
+</arguments>
+<assign>
+<var>${responce}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.902" level="INFO">GET Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:22.902" level="INFO">GET Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '176'} 
+ body=[{"balance":3000.33,"lastName":"Yameen"},{"balance":1500.22,"firstName":"Oday","id":"2","lastName":"Yameen"},{"balance":9500.0,"firstName":"Oday","id":"1","lastName":"Yameen"}] 
+ </msg>
+<msg timestamp="20210321 14:36:22.903" level="INFO">${responce} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:21.773" endtime="20210321 14:36:22.903"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${responce.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.904" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20210321 14:36:22.903" endtime="20210321 14:36:22.904"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20210321 14:36:22.904" endtime="20210321 14:36:22.905"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${responce.json()}</arg>
+</arguments>
+<assign>
+<var>${NoAcc}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.905" level="INFO">Length is 3</msg>
+<msg timestamp="20210321 14:36:22.906" level="INFO">${NoAcc} = 3</msg>
+<status status="PASS" starttime="20210321 14:36:22.905" endtime="20210321 14:36:22.906"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${NoAcc}</arg>
+<arg>${No_Account}</arg>
+</arguments>
+<msg timestamp="20210321 14:36:22.906" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:22.906" level="FAIL">3 != 4</msg>
+<status status="FAIL" starttime="20210321 14:36:22.906" endtime="20210321 14:36:22.906"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:21.772" endtime="20210321 14:36:22.907"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:21.770" endtime="20210321 14:36:22.907" critical="yes">3 != 4</status>
+</test>
+<test id="s1-s2-t2" name="TC2">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:22.908" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:22.908" endtime="20210321 14:36:22.909"></status>
+</kw>
+<kw name="checkifInformationOfAccountValid_ExistingAccount" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>2</arg>
+</arguments>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${SESSION}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${responce}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.948" level="INFO">GET Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/2 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/2 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:22.948" level="INFO">GET Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/2 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '67'} 
+ body={"balance":1500.22,"firstName":"Oday","id":"2","lastName":"Yameen"} 
+ </msg>
+<msg timestamp="20210321 14:36:22.948" level="INFO">${responce} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:22.913" endtime="20210321 14:36:22.948"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${responce.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.949" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20210321 14:36:22.949" endtime="20210321 14:36:22.949"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20210321 14:36:22.949" endtime="20210321 14:36:22.949"></status>
+</kw>
+<kw name="${item} IN [ ${responce.json()} ]" type="for">
+<msg timestamp="20210321 14:36:22.949" level="WARN">Error in file 'C:\Users\OdayY\eclipse-workspace\LaithTest\Helper\HelperTC.robot' in FOR loop starting on line 29: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<kw name="${item} = {'balance': 1500.22, 'firstName': 'Oday', 'id': '2', 'lastName': 'Yameen'}" type="foritem">
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${item}</arg>
+<arg>id</arg>
+</arguments>
+<assign>
+<var>${res_id}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.951" level="INFO">${res_id} = 2</msg>
+<status status="PASS" starttime="20210321 14:36:22.951" endtime="20210321 14:36:22.951"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_id}</arg>
+<arg>${id}</arg>
+</arguments>
+<status status="PASS" starttime="20210321 14:36:22.951" endtime="20210321 14:36:22.952"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.951" endtime="20210321 14:36:22.952"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.949" endtime="20210321 14:36:22.952"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.912" endtime="20210321 14:36:22.952"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.908" endtime="20210321 14:36:22.952" critical="yes"></status>
+</test>
+<test id="s1-s2-t3" name="TC3">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:22.954" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:22.954" endtime="20210321 14:36:22.954"></status>
+</kw>
+<kw name="checkifInformationOfAccountValid_NotExistingAccount" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>55</arg>
+</arguments>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${SESSION}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${responce}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.972" level="INFO">GET Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/55 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:22.972" level="INFO">GET Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ status=204, reason=No Content 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:22.973" level="INFO">${responce} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:22.955" endtime="20210321 14:36:22.973"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responce.status_code}</arg>
+<arg>204</arg>
+</arguments>
+<msg timestamp="20210321 14:36:22.974" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:22.973" endtime="20210321 14:36:22.974"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.955" endtime="20210321 14:36:22.974"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.953" endtime="20210321 14:36:22.974" critical="yes"></status>
+</test>
+<status status="FAIL" starttime="20210321 14:36:21.759" endtime="20210321 14:36:22.976"></status>
+</suite>
+<suite id="s1-s3" name="POST" source="C:\Users\OdayY\eclipse-workspace\LaithTest\TestCases\REST_API\POST.robot">
+<test id="s1-s3-t1" name="TC1">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:22.987" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:22.987" endtime="20210321 14:36:22.988"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:22.989" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:22.989" endtime="20210321 14:36:22.989"></status>
+</kw>
+<kw name="createAccountHolder_Correct" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}</arg>
+<arg>json=${theJSONdata}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.011" level="INFO">POST Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.011" level="INFO">POST Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body={"balance":3000.33,"firstName":"Ahmad","id":"3","lastName":"Yameen"} 
+ </msg>
+<msg timestamp="20210321 14:36:23.012" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:22.990" endtime="20210321 14:36:23.012"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.012" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.012" endtime="20210321 14:36:23.013"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${theJSONdata}</arg>
+<arg>id</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.013" level="INFO">${id} = 3</msg>
+<status status="PASS" starttime="20210321 14:36:23.013" endtime="20210321 14:36:23.013"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${res2}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.040" level="INFO">GET Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:23.040" level="INFO">GET Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body={"balance":3000.33,"firstName":"Ahmad","id":"3","lastName":"Yameen"} 
+ </msg>
+<msg timestamp="20210321 14:36:23.040" level="INFO">${res2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.013" endtime="20210321 14:36:23.040"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${res2.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.041" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.040" endtime="20210321 14:36:23.041"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${theJSONdata}</arg>
+<arg>${res2.json()}</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.041" level="INFO">Argument types are:
+&lt;class 'robot.utils.dotdict.DotDict'&gt;
+&lt;class 'dict'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.041" endtime="20210321 14:36:23.041"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.990" endtime="20210321 14:36:23.041"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:22.986" endtime="20210321 14:36:23.042" critical="yes"></status>
+</test>
+<test id="s1-s3-t2" name="TC2">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.044" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.044" endtime="20210321 14:36:23.044"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.045" level="INFO">${body} = {'id': '3', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:23.045" endtime="20210321 14:36:23.045"></status>
+</kw>
+<kw name="createAccountHolder_NotALLFild" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}</arg>
+<arg>json=${theJSONdata}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.068" level="INFO">POST Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '31', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.069" level="INFO">POST Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Type': 'application/json', 'Content-Length': '28'} 
+ body={"balance":3000.33,"id":"3"} 
+ </msg>
+<msg timestamp="20210321 14:36:23.069" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.046" endtime="20210321 14:36:23.069"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>500</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.069" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:23.070" level="FAIL">201 != 500</msg>
+<status status="FAIL" starttime="20210321 14:36:23.069" endtime="20210321 14:36:23.070"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.046" endtime="20210321 14:36:23.070"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.043" endtime="20210321 14:36:23.071" critical="yes">201 != 500</status>
+</test>
+<test id="s1-s3-t3" name="TC3">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.072" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.072" endtime="20210321 14:36:23.072"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.073" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:23.073" endtime="20210321 14:36:23.073"></status>
+</kw>
+<kw name="createAccountHolder_ExistBefor" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}</arg>
+<arg>json=${theJSONdata}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.096" level="INFO">POST Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.096" level="INFO">POST Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body={"balance":3000.33,"firstName":"Ahmad","id":"3","lastName":"Yameen"} 
+ </msg>
+<msg timestamp="20210321 14:36:23.096" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.075" endtime="20210321 14:36:23.096"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>500</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.097" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:23.097" level="FAIL">201 != 500</msg>
+<status status="FAIL" starttime="20210321 14:36:23.096" endtime="20210321 14:36:23.097"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.074" endtime="20210321 14:36:23.097"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.072" endtime="20210321 14:36:23.098" critical="yes">201 != 500</status>
+</test>
+<test id="s1-s3-t4" name="TC4">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.100" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.099" endtime="20210321 14:36:23.100"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=OdayWelcom</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.101" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 'OdayWelcom'}</msg>
+<status status="PASS" starttime="20210321 14:36:23.100" endtime="20210321 14:36:23.101"></status>
+</kw>
+<kw name="createAccountHolder_incorrectData" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}</arg>
+<arg>json=${wrong_json_data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.121" level="INFO">POST Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '80', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": "OdayWelcom"}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.121" level="INFO">POST Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/ 
+ status=500, reason=Internal Server Error 
+ headers={'Content-Language': '', 'Content-Type': 'text/html', 'Connection': 'close', 'Content-Length': '1709'} 
+ body=&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;&lt;title&gt;GlassFish Server Open Source Edition  5.1.0  - Error report&lt;/title&gt;&lt;style type="text/css"&gt;&lt;!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}HR {color : #525D76;}--&gt;&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Internal Server Error&lt;/h1&gt;&lt;hr/&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt;Internal Server Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt; &lt;pre&gt;javax.servlet.ServletException: javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.json.bind.JsonbException: Error deserialize JSON value into type: class java.lang.Double.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack traces of the exception and its root causes are available in the GlassFish Server Open Source Edition  5.1.0  logs.&lt;/u&gt;&lt;/p&gt;&lt;hr/&gt;&lt;h3&gt;GlassFish Server Open Source Edition  5.1.0 &lt;/h3&gt;&lt;/body&gt;&lt;/html&gt; 
+ </msg>
+<msg timestamp="20210321 14:36:23.132" level="FAIL">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/</msg>
+<status status="FAIL" starttime="20210321 14:36:23.102" endtime="20210321 14:36:23.132"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.101" endtime="20210321 14:36:23.132"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.099" endtime="20210321 14:36:23.133" critical="yes">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/</status>
+</test>
+<status status="FAIL" starttime="20210321 14:36:22.978" endtime="20210321 14:36:23.136"></status>
+</suite>
+<suite id="s1-s4" name="PUT" source="C:\Users\OdayY\eclipse-workspace\LaithTest\TestCases\REST_API\PUT.robot">
+<test id="s1-s4-t1" name="TC1">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.150" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.149" endtime="20210321 14:36:23.150"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.151" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:23.150" endtime="20210321 14:36:23.151"></status>
+</kw>
+<kw name="updateAccountHolder_CorrectInfo" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>3</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Put On Session" library="RequestsLibrary">
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${account_id}</arg>
+<arg>json=${json}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.173" level="INFO">PUT Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.174" level="INFO">PUT Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:23.174" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.152" endtime="20210321 14:36:23.174"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${json}</arg>
+<arg>id</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.174" level="INFO">${id} = 3</msg>
+<status status="PASS" starttime="20210321 14:36:23.174" endtime="20210321 14:36:23.174"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+</arguments>
+<assign>
+<var>${res2}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.189" level="INFO">GET Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:23.189" level="INFO">GET Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=200, reason=OK 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body={"balance":3000.33,"firstName":"Ahmad","id":"3","lastName":"Yameen"} 
+ </msg>
+<msg timestamp="20210321 14:36:23.189" level="INFO">${res2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.175" endtime="20210321 14:36:23.189"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${res2.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.190" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.190" endtime="20210321 14:36:23.190"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${json}</arg>
+<arg>${res2.json()}</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.191" level="INFO">Argument types are:
+&lt;class 'robot.utils.dotdict.DotDict'&gt;
+&lt;class 'dict'&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.190" endtime="20210321 14:36:23.191"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:23.152" endtime="20210321 14:36:23.191"></status>
+</kw>
+<status status="PASS" starttime="20210321 14:36:23.149" endtime="20210321 14:36:23.194" critical="yes"></status>
+</test>
+<test id="s1-s4-t2" name="TC2">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.196" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.195" endtime="20210321 14:36:23.196"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>lastName=Yameen</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.196" level="INFO">${body} = {'lastName': 'Yameen', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:23.196" endtime="20210321 14:36:23.196"></status>
+</kw>
+<kw name="updateAccount_MissFilds" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>3</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Put On Session" library="RequestsLibrary">
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+<arg>json=${json_Miss_filds}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.223" level="INFO">PUT Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
+ body=b'{"lastName": "Yameen", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.223" level="INFO">PUT Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:23.224" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.197" endtime="20210321 14:36:23.224"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>500</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.224" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:23.224" level="FAIL">201 != 500</msg>
+<status status="FAIL" starttime="20210321 14:36:23.224" endtime="20210321 14:36:23.225"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.196" endtime="20210321 14:36:23.225"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.195" endtime="20210321 14:36:23.225" critical="yes">201 != 500</status>
+</test>
+<test id="s1-s4-t3" name="TC3">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.228" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.227" endtime="20210321 14:36:23.228"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=Odayyameen</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.229" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 'Odayyameen'}</msg>
+<status status="PASS" starttime="20210321 14:36:23.228" endtime="20210321 14:36:23.229"></status>
+</kw>
+<kw name="updateAccountWith_incorrectInfo" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>3</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Put On Session" library="RequestsLibrary">
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+<arg>json=${json_incorrect}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.244" level="INFO">PUT Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '80', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": "Odayyameen"}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.244" level="INFO">PUT Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=500, reason=Internal Server Error 
+ headers={'Content-Language': '', 'Content-Type': 'text/html', 'Connection': 'close', 'Content-Length': '1709'} 
+ body=&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;&lt;title&gt;GlassFish Server Open Source Edition  5.1.0  - Error report&lt;/title&gt;&lt;style type="text/css"&gt;&lt;!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}HR {color : #525D76;}--&gt;&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Internal Server Error&lt;/h1&gt;&lt;hr/&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt;Internal Server Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt; &lt;pre&gt;javax.servlet.ServletException: javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.json.bind.JsonbException: Error deserialize JSON value into type: class java.lang.Double.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack traces of the exception and its root causes are available in the GlassFish Server Open Source Edition  5.1.0  logs.&lt;/u&gt;&lt;/p&gt;&lt;hr/&gt;&lt;h3&gt;GlassFish Server Open Source Edition  5.1.0 &lt;/h3&gt;&lt;/body&gt;&lt;/html&gt; 
+ </msg>
+<msg timestamp="20210321 14:36:23.245" level="FAIL">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3</msg>
+<status status="FAIL" starttime="20210321 14:36:23.230" endtime="20210321 14:36:23.246"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.229" endtime="20210321 14:36:23.246"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.227" endtime="20210321 14:36:23.247" critical="yes">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3</status>
+</test>
+<test id="s1-s4-t4" name="TC4">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.252" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.252" endtime="20210321 14:36:23.253"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=3</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=${3000.33}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.254" level="INFO">${body} = {'id': '3', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 3000.33}</msg>
+<status status="PASS" starttime="20210321 14:36:23.253" endtime="20210321 14:36:23.254"></status>
+</kw>
+<kw name="updateAccount_Existing" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>3</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Put On Session" library="RequestsLibrary">
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+<arg>json=${json_exsist}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.279" level="INFO">PUT Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3", "firstName": "Ahmad", "lastName": "Yameen", "balance": 3000.33}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.279" level="INFO">PUT Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3 
+ status=201, reason=Created 
+ headers={'Server': 'GlassFish Server Open Source Edition  5.1.0 ', 'X-Powered-By': 'Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  5.1.0  Java/Oracle Corporation/1.8)', 'Location': 'http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/3', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210321 14:36:23.280" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210321 14:36:23.255" endtime="20210321 14:36:23.280"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>500</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.280" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20210321 14:36:23.280" level="FAIL">201 != 500</msg>
+<status status="FAIL" starttime="20210321 14:36:23.280" endtime="20210321 14:36:23.281"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.254" endtime="20210321 14:36:23.281"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.251" endtime="20210321 14:36:23.282" critical="yes">201 != 500</status>
+</test>
+<test id="s1-s4-t5" name="TC5">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysess</arg>
+<arg>http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders</arg>
+</arguments>
+<msg timestamp="20210321 14:36:23.284" level="INFO">Creating Session using : alias=mysess, url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210321 14:36:23.284" endtime="20210321 14:36:23.285"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=55</arg>
+<arg>firstName=Ahmad</arg>
+<arg>lastName=Yameen</arg>
+<arg>balance=Odayyameen</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.287" level="INFO">${body} = {'id': '55', 'firstName': 'Ahmad', 'lastName': 'Yameen', 'balance': 'Odayyameen'}</msg>
+<status status="PASS" starttime="20210321 14:36:23.287" endtime="20210321 14:36:23.287"></status>
+</kw>
+<kw name="updateAccount_NotExist" library="HelperTC">
+<arguments>
+<arg>mysess</arg>
+<arg>/</arg>
+<arg>55</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Put On Session" library="RequestsLibrary">
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>${mysess}</arg>
+<arg>${path}${id}</arg>
+<arg>json=${json_not_exist}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210321 14:36:23.308" level="INFO">PUT Request : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ path_url=/jakarta-ee-getting-started/rest/accountHolders/55 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '81', 'Content-Type': 'application/json'} 
+ body=b'{"id": "55", "firstName": "Ahmad", "lastName": "Yameen", "balance": "Odayyameen"}' 
+ </msg>
+<msg timestamp="20210321 14:36:23.308" level="INFO">PUT Response : url=http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55 
+ status=500, reason=Internal Server Error 
+ headers={'Content-Language': '', 'Content-Type': 'text/html', 'Connection': 'close', 'Content-Length': '1709'} 
+ body=&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;&lt;title&gt;GlassFish Server Open Source Edition  5.1.0  - Error report&lt;/title&gt;&lt;style type="text/css"&gt;&lt;!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}HR {color : #525D76;}--&gt;&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Internal Server Error&lt;/h1&gt;&lt;hr/&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt;Internal Server Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt; &lt;pre&gt;javax.servlet.ServletException: javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.ws.rs.ProcessingException: Error deserializing object from entity stream.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;root cause&lt;/b&gt; &lt;pre&gt;javax.json.bind.JsonbException: Error deserialize JSON value into type: class java.lang.Double.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack traces of the exception and its root causes are available in the GlassFish Server Open Source Edition  5.1.0  logs.&lt;/u&gt;&lt;/p&gt;&lt;hr/&gt;&lt;h3&gt;GlassFish Server Open Source Edition  5.1.0 &lt;/h3&gt;&lt;/body&gt;&lt;/html&gt; 
+ </msg>
+<msg timestamp="20210321 14:36:23.309" level="FAIL">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55</msg>
+<status status="FAIL" starttime="20210321 14:36:23.288" endtime="20210321 14:36:23.310"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.288" endtime="20210321 14:36:23.310"></status>
+</kw>
+<status status="FAIL" starttime="20210321 14:36:23.283" endtime="20210321 14:36:23.311" critical="yes">HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:8080/jakarta-ee-getting-started/rest/accountHolders/55</status>
+</test>
+<status status="FAIL" starttime="20210321 14:36:23.139" endtime="20210321 14:36:23.312"></status>
+</suite>
+<status status="FAIL" starttime="20210321 14:36:21.285" endtime="20210321 14:36:23.317"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="9">Critical Tests</stat>
+<stat pass="5" fail="9">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="9" id="s1" name="DELETE &amp; GET &amp; POST &amp; PUT">DELETE &amp; GET &amp; POST &amp; PUT</stat>
+<stat pass="1" fail="1" id="s1-s1" name="DELETE">DELETE &amp; GET &amp; POST &amp; PUT.DELETE</stat>
+<stat pass="2" fail="1" id="s1-s2" name="GET">DELETE &amp; GET &amp; POST &amp; PUT.GET</stat>
+<stat pass="1" fail="3" id="s1-s3" name="POST">DELETE &amp; GET &amp; POST &amp; PUT.POST</stat>
+<stat pass="1" fail="4" id="s1-s4" name="PUT">DELETE &amp; GET &amp; POST &amp; PUT.PUT</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210321 14:36:22.949" level="WARN">Error in file 'C:\Users\OdayY\eclipse-workspace\LaithTest\Helper\HelperTC.robot' in FOR loop starting on line 29: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+</errors>
+</robot>
